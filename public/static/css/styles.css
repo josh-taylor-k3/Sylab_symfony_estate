@@ -1,4 +1,16 @@
+#search-home{
+    background-image: url(../img/home/fond-search-home.png);
+    height: 364px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#search-home h2{
+    text-shadow: 0 3px 5px #555;
+}
 .card-hover:hover{
     text-decoration: none;
     color: red;
+}
+#info-icon{
+    background-color: rgb(116, 116, 116);
 }
