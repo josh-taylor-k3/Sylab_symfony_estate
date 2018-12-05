@@ -4,7 +4,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+#search-home a{
+    background-color: #9e451c;
+}
 #search-home h2{
+    margin-top: 25px;
     text-shadow: 0 3px 5px #555;
 }
 .card-hover:hover{
