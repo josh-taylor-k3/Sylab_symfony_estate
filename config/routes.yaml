@@ -9,3 +9,7 @@ home:
 buy:
     path: /buy
     controller: App\Controller\BuyController::buyHome
+
+show:
+    path: /show
+    controller: App\Controller\ShowController::showHome
