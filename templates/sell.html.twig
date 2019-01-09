@@ -7,6 +7,11 @@
 
 
 {% block body %}
+    <div class="jumbotron text-center">
+        <h1>Vendre</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque in mollitia pariatur praesentium quae quasi suscipit ullam voluptatum! Consectetur dignissimos esse exercitationem magni minima molestiae nesciunt obcaecati provident sunt tenetur.</p>
+    </div>
+
         <div class="container">
             <form method="POST" action="" class="form-group">
                 <div class="row mt-5">
@@ -15,12 +20,43 @@
                     </div>
 
                     <div class="col-md-8">
-                        <input type="text" class="form-control mb-3" name="champs1" placeholder="Nom du bien" />
-                        <input type="text" class="form-control mb-3" name="champs2" placeholder="Champs par champs" />
-                        <input type="text" class="form-control mb-3" name="champs3" placeholder="Champs par champs" />
-                        <input type="text" class="form-control mb-3" name="champs4" placeholder="Champs par champs" />
-                        <input type="text" class="form-control mb-3" name="champs5" placeholder="Champs par champs" />
-                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Champs par champs" />
+                        <label for="inputName">Nom du bien</label>
+                        <input type="text" class="form-control mb-3" name="champs1" placeholder="Ex: Appartement Chartrons"/>
+
+                        <label for="inputDesc">Description</label>
+                        <textarea class="form-control mb-3" name="champs2" placeholder="Description.."></textarea>
+
+                        <label for="inputPrice">Prix</label>
+                        <input type="text" class="form-control mb-3" name="champs3" placeholder="Ex: 100 400"/>
+
+                        <label for="inputSurface">Surface</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control mb-3" name="champs4" placeholder="Ex: 40"/>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">m²</span>
+                            </div>
+                        </div>
+
+                        <label for="inputRooms">Nombre de pièces</label>
+                        <input type="text" class="form-control mb-3" name="champs5" placeholder="Ex: 5"/>
+
+                        <label for="inputBedrooms">Nombre de chambres</label>
+                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Ex: 2"/>
+
+                        <label for="inputAdresse">Adresse</label>
+                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Ex: 10 rue Poulin"/>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">Ville</label>
+                                <input type="text" class="form-control" id="inputCity" placeholder="Ex: Bordeaux">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Code Postal</label>
+                                <input type="text" class="form-control" id="inputZip" placeholder="Ex: 33300">
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Vendre</button>
                     </div>
                 </div>
