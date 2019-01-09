@@ -32,8 +32,8 @@
                                 <img class="card-img-top" src=".../100px180/" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ propriety.name }}</h5>
-                                    <p class="card-text">{{ propriety.description }}</p>
-                                    <p class="card-text text-primary">{{ propriety.price }}</p>
+                                    <p class="card-text">{{ propriety.description[:200] ~ '...' }}</p>
+                                    <p class="card-text text-primary">{{ propriety.price|number_format(0, ",", " ") }}€</p>
                                 </div>
                             </div>
                         </a>
