@@ -24,14 +24,5 @@
     background-position-y: center;
     background-size: cover;
     background-repeat: no-repeat;
-
-}
-
-#footer{
-
-}
-
-/*   styles sell   */
-#add-photo {
-    
+    font-size: 1.5em;
 }
