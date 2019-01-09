@@ -1,3 +1,4 @@
+/*   styles home   */
 #search-home{
     background-image: url(../img/home/fond-search-home.png);
     height: 364px;
@@ -18,3 +19,6 @@
 #info-icon{
     background-color: rgb(116, 116, 116);
 }
+
+/*   styles sell   */
+#add-photo {}

@@ -13,3 +13,7 @@ buy:
 show:
     path: /show
     controller: App\Controller\ShowController::showHome
+
+sell:
+    path: /sell
+    controller: App\Controller\SellController::sellHome

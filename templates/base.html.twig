@@ -22,7 +22,7 @@
                     <a class="nav-link {% if current_menu is defined and current_menu == 'buy_properties' %}active{% endif %}" href="{{ path('buy') }}">Acheter</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if current_menu is defined and current_menu == 'sell_properties' %}active{% endif %}" href="#">Vendre</a>
+                    <a class="nav-link {% if current_menu is defined and current_menu == 'sell_properties' %}active{% endif %}" href="{{ path('sell') }}">Vendre</a>
                 </li>
                 </ul>
             </div>

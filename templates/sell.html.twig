@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Sylab ! {% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('static/css/styles.css') }}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block body %}
+        <div class="container">
+            <form method="POST" action="" class="form-group">
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <input type="file" id="add-photo" class="form-control-file" name="image" accept="image/*">
+                    </div>
+
+                    <div class="col-md-8">
+                        <input type="text" class="form-control mb-3" name="champs1" placeholder="Nom du bien" />
+                        <input type="text" class="form-control mb-3" name="champs2" placeholder="Champs par champs" />
+                        <input type="text" class="form-control mb-3" name="champs3" placeholder="Champs par champs" />
+                        <input type="text" class="form-control mb-3" name="champs4" placeholder="Champs par champs" />
+                        <input type="text" class="form-control mb-3" name="champs5" placeholder="Champs par champs" />
+                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Champs par champs" />
+                        <button type="submit" class="btn btn-primary">Vendre</button>
+                    </div>
+                </div>
+            </form>
+
+{% endblock %}
