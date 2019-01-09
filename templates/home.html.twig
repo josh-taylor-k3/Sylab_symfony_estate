@@ -25,44 +25,20 @@
 
             <div class="col-md-12 text-center mt-3">
                 <div class="row">
+                {% for propriety in proprieties %}
                     <div class="col-md-4">
                         <a href="" class="text-dark  card-hover">
                             <div class="card" style="width: 18rem;">
                                 <img class="card-img-top" src=".../100px180/" alt="Card image cap">
                                 <div class="card-body">
-                                    <h5 class="card-title">Titre logement</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <p class="card-text text-primary">Prix</p>
+                                    <h5 class="card-title">{{ propriety.name }}</h5>
+                                    <p class="card-text">{{ propriety.description }}</p>
+                                    <p class="card-text text-primary">{{ propriety.price }}</p>
                                 </div>
                             </div>
                         </a>
                     </div>
-
-                    <div class="col-md-4">
-                        <a href="" class="text-dark card-hover">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Titre logement</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <p class="card-text text-primary">Prix</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-4">
-                        <a href="" class="text-dark card-hover">
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">Titre logement</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <p class="card-text text-primary">Prix</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
