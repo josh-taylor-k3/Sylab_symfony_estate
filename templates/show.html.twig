@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-4">
                     <h1>{{ propriety.name }}</h1>
-                    <h2> pieces - {{ propriety.surface }} m2</h2>
+                    <h2>{{ propriety.nbrrooms }} pieces - {{ propriety.surface }} m2</h2>
                     <div class="text" style="font-size: 4rem;font-weight: bold;">{{ propriety.price|number_format(0, ",", " ") }}€</div>
                     <div class="btn btn-primary"> Contacter l'agence</div>
                 </div>
@@ -29,29 +29,19 @@
                     </tr>
                     <tr>
                         <td>Piece</td>
-                        <td> pieces</td>
+                        <td>{{ propriety.nbrrooms }} pieces</td>
                     </tr>
                     <tr>
                         <td>Chambres</td>
-                        <td> chambre</td>
+                        <td>{{ propriety.nbrbedrooms }} chambre</td>
                     </tr>
-                    <tr>
-                        <td>Étage</td>
-                        <td>3ème</td>
-                    </tr>
-                    <tr>
-                        <td>Chauffage</td>
-                        <td>Gaz</td>
-                    </tr>
-
                     <tr>
                         <td>Adresse</td>
                         <td>{{ propriety.address }}</td>
                     </tr>
-
                     <tr>
                         <td>Ville</td>
-                        <td> {{ propriety.city }}</td>
+                        <td>{{ propriety.zipcode }}{{ propriety.city }}</td>
                     </tr>
                 </table>
             </div>
