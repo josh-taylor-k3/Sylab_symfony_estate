@@ -1,23 +1,34 @@
-/*   styles home   */
+/*   Styles home   */
 #search-home{
     background-image: url(../img/home/fond-search-home.png);
     height: 364px;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 #search-home a{
     background-color: #a45843;
 }
+
 #search-home h2{
     margin-top: 25px;
     text-shadow: 0 3px 5px #555;
 }
+
 .card-hover:hover{
     text-decoration: none;
     color: red;
 }
 #info-icon{
-    background-color: rgb(116, 116, 116);
+    background-image: url(../img/home/footer-background.png);
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+#footer{
+
 }
 
 /*   styles sell   */
