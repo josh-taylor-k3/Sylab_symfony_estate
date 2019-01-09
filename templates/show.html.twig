@@ -9,39 +9,49 @@
                 <div class="col-md-8">
                 </div>
                 <div class="col-md-4">
-                    <h1>Titre du Bien</h1>
-                    <h2> 2 pieces - 20 m2</h2>
-                    <div class="text" style="font-size: 4rem;font-weight: bold;">20 000€</div>
+                    <h1>{{ propriety.name }}</h1>
+                    <h2> pieces - {{ propriety.surface }} m2</h2>
+                    <div class="text" style="font-size: 4rem;font-weight: bold;">{{ propriety.price|number_format(0, ",", " ") }}€</div>
                     <div class="btn btn-primary"> Contacter l'agence</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container mt-4">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto assumenda consectetur, earum fugit iusto labore ut voluptas voluptatem? A cum dolorum impedit, laborum laudantium nobis optio qui quos ut voluptate.</p>
+        <p>{{ propriety.description }}</p>
         <div class="row">
             <div class="col-md-12">
                 <h2 class="mb-3">Caractéristiques</h2>
                 <table class="table table-striped">
                     <tr>
                         <td>Surface habitable</td>
-                        <td>60 m2</td>
+                        <td>{{ propriety.surface }} m2</td>
                     </tr>
                     <tr>
                         <td>Piece</td>
-                        <td>2 pieces</td>
+                        <td> pieces</td>
                     </tr>
                     <tr>
                         <td>Chambres</td>
-                        <td>1 chambre</td>
+                        <td> chambre</td>
                     </tr>
                     <tr>
-                        <td>Etage</td>
+                        <td>Étage</td>
                         <td>3ème</td>
                     </tr>
                     <tr>
                         <td>Chauffage</td>
                         <td>Gaz</td>
+                    </tr>
+
+                    <tr>
+                        <td>Adresse</td>
+                        <td>{{ propriety.address }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ville</td>
+                        <td> {{ propriety.city }}</td>
                     </tr>
                 </table>
             </div>

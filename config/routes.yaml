@@ -11,7 +11,7 @@ buy:
     controller: App\Controller\BuyController::buyHome
 
 show:
-    path: /show
+    path: /show/{id}
     controller: App\Controller\ShowController::showHome
 
 sell:
