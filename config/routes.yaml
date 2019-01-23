@@ -17,3 +17,11 @@ show:
 sell:
     path: /sell
     controller: App\Controller\SellController::sellHome
+
+admin:
+    path: /admin
+    controller: App\Controller\AdminProprieteController::index
+
+edit:
+    path: /admin/edit/{id}
+    controller: App\Controller\AdminProprieteController::editBien

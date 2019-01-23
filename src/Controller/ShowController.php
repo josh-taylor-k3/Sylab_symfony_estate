@@ -7,6 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ShowController extends AbstractController
 {
+	/**
+	 * @param $id
+	 * @return Response
+	 */
 	public function showHome($id):Response
 	{
 		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
