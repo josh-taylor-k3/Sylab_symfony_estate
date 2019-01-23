@@ -17,7 +17,7 @@ class HomeController extends AbstractController
 		$propriete_bien = $repo->latestBien();
 		
 		return $this->render('home.html.twig', [
-            'proprieties' => $propriete_bien
+            'properties' => $propriete_bien
         ]);
 	}
 
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
 		
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
-			'proprieties' => $propriete_bien
+			'properties' => $propriete_bien
 		]);
 	}
 

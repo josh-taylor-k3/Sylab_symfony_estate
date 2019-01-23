@@ -6,6 +6,7 @@
     <div class="container mt-4 col-md-9">
         <h1>Panel Admin</h1>
 
+        {# Show flash messages #}
         {% for message in app.flashes('success') %}
         <div class="alert alert-success">
             {{ message }}
@@ -25,12 +26,14 @@
             {% for property in properties %}
                 <tr>
                     <td>{{ property.name }}</td>
-                    <td> <a href="/show/{{ property.id }}"><i class="fa fa-icon"></i><button class="btn btn-secondary"><i class="fa fa-eye fa-lg mr-2"></i>Voir</button></a> </td>
-                    <td> <a href="/admin/edit/{{ property.id }}"><button class="btn btn-success"><i class="fa fa-pencil fa-lg mr-2"></i>Editer</button></a> </td>
+                    <td> <a href="{{ path('show', {id: property.id }) }}"><i class="fa fa-icon"></i><button class="btn btn-secondary"><i class="fa fa-eye fa-lg mr-2"></i>Voir</button></a> </td>
+                    <td> <a href="{{ path('edit', {id: property.id}) }}"><button class="btn btn-success"><i class="fa fa-pencil fa-lg mr-2"></i>Editer</button></a> </td>
                     <td>
-                        {# Methode delete + id de la property #}
+
+                        {# Methode delete + id de la property + popu pour confirmer la suppression #}
                         <form action="{{ path('delete', {id: property.id}) }}" method="post" onsubmit="return confirm('Voulez vous vraiment supprimer ce bien ?')">
                             <input type="hidden" name="_methods" value="DELETE">
+
                             {# Generer un CSRF token pour la sécurité #}
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
                             <button class="btn btn-danger"><i class="fa fa-trash-o fa-lg mr-2"></i>Supprimer</button>

@@ -15,17 +15,17 @@
         <div class="container">
             <div class="row flex">
                 <!-- Condition for -->
-                {% for propriety in proprieties %}
+                {% for property in properties %}
                 <div class="col-4">
-                <a href="/show/{{ propriety.id }}" class="text-dark  card-hover">
+                <a href="{{ path('show', {id: property.id }) }}" class="text-dark  card-hover">
                     <div class="card">
                         <div class="card-body">
-                            <img class="card-img-top img-size-2" src="{{ asset('upload/img/image_bien/') }}{{ propriety.image }}" alt="Card image cap">
+                            <img class="card-img-top img-size-2" src="{{ asset('upload/img/image_bien/') }}{{ property.image }}" alt="Card image cap">
                                 <h5 class="card-title">
-                                    <p class="text-center">{{ propriety.name }}</p>
+                                    <p class="text-center">{{ property.name }}</p>
                                 </h5>
-                                <p class="card-text text-center">{{ propriety.description[:200] ~ '...' }}</p>
-                            <div class="text-primary text-center">{{ propriety.price|number_format(0, ",", " ") }}€</div>
+                                <p class="card-text text-center">{{ property.description[:200] ~ '...' }}</p>
+                            <div class="text-primary text-center">{{ property.price|number_format(0, ",", " ") }}€</div>
                         </div>
                     </div>
                 </div>
