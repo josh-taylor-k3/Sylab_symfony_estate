@@ -13,7 +13,6 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque in mollitia pariatur praesentium quae quasi suscipit ullam voluptatum! Consectetur dignissimos esse exercitationem magni minima molestiae nesciunt obcaecati provident sunt tenetur.</p>
     </div>
 
-<<<<<<< HEAD
         <div class="container">
             {{ form_start(form, 
                 {'attr': {'novalidate': 'novalidate'}}) 
@@ -23,24 +22,5 @@
 
             {{ form_end(form) }}
         </div>
-=======
-    <div class="container">
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <input type="file" id="add-photo" class="form-control-file" name="image" accept="image/*">
-            </div>
-
-            <div class="col-md-8">
-                {{ form_start(form,
-                    {'attr': {'novalidate': 'novalidate'}})
-                }}
-
-                {{ form_rest(form) }}
-
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
->>>>>>> 3f4ea09fe3e019d340adcf0d39507f717eccab9b
 
 {% endblock %}
