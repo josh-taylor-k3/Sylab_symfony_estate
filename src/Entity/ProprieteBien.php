@@ -93,9 +93,9 @@ class ProprieteBien
     private $updatedAt;
 
 	public function getId(): ?int
-    {
-        return $this->id;
-    }
+          {
+              return $this->id;
+          }
 
     public function getName(): ?string
     {
@@ -248,7 +248,19 @@ class ProprieteBien
     {
         $this->imageFile = $image;
         if ($image) {
-            $this->updatedAt = new \DateTime('now');
+            $this->updatedAt = new \DateTime();
         }
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }
