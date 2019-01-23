@@ -22,6 +22,10 @@ admin:
     path: /admin
     controller: App\Controller\AdminProprieteController::index
 
+add:
+    path: /admin/add
+    controller: App\Controller\AdminProprieteController::addBien
+
 edit:
     path: /admin/edit/{id}
     controller: App\Controller\AdminProprieteController::editBien

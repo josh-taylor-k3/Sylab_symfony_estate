@@ -17,7 +17,6 @@ class ShowController extends AbstractController
 		$propriete_bien = $repo->find($id);
 
 		return $this->render('show.html.twig', [
-			'current_menu' => "sell_properties",
 			'propriety' => $propriete_bien
 		]);
 	}

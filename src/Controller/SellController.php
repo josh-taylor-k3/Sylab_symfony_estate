@@ -54,10 +54,13 @@ class SellController extends AbstractController
 			->getForm();
 
 		$form->handleRequest($request);
+
+		// Check form
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
 			$current_time = new \DateTime();
+			// Recup data
             $formData = $form->getData();
 
             $propriete_bien->setName($formData->getName());
@@ -79,6 +82,7 @@ class SellController extends AbstractController
         }
 
 		return $this->render('sell.html.twig', [
+			'current_menu' => "sell_properties",
 			'form' => $form->createView(),
 		]);
 	}
