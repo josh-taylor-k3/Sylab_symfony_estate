@@ -26,3 +26,13 @@
     background-repeat: no-repeat;
     font-size: 1.5em;
 }
+.img-size{
+    height: 150px;
+}
+.img-size-2{
+    height: 200px;
+}
+#img-size{
+    width: 700px;
+    height: 300px;
+}
