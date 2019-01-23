@@ -8,11 +8,11 @@ home:
 
 buy:
     path: /buy
-    controller: App\Controller\BuyController::buyHome
+    controller: App\Controller\HomeController::buyHome
 
 show:
     path: /show/{id}
-    controller: App\Controller\ShowController::showHome
+    controller: App\Controller\HomeController::showHome
 
 sell:
     path: /sell
