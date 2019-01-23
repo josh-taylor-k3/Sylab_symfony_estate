@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block title %} Sylab ! {% endblock %}
 {% block stylesheets %}
@@ -13,51 +14,19 @@
     </div>
 
         <div class="container">
-            <form method="POST" action="" class="form-group">
-                <div class="row mt-5">
+            <div class="row mt-5">
                     <div class="col-md-4">
                         <input type="file" id="add-photo" class="form-control-file" name="image" accept="image/*">
                     </div>
 
                     <div class="col-md-8">
-                        <label for="inputName">Nom du bien</label>
-                        <input type="text" class="form-control mb-3" name="champs1" placeholder="Ex: Appartement Chartrons"/>
+                        {{ form_start(form, 
+                            {'attr': {'novalidate': 'novalidate'}}) 
+                        }}
 
-                        <label for="inputDesc">Description</label>
-                        <textarea class="form-control mb-3" name="champs2" placeholder="Description.."></textarea>
+                        {{ form_rest(form) }}
 
-                        <label for="inputPrice">Prix</label>
-                        <input type="text" class="form-control mb-3" name="champs3" placeholder="Ex: 100 400"/>
-
-                        <label for="inputSurface">Surface</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control mb-3" name="champs4" placeholder="Ex: 40"/>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">m²</span>
-                            </div>
-                        </div>
-
-                        <label for="inputRooms">Nombre de pièces</label>
-                        <input type="text" class="form-control mb-3" name="champs5" placeholder="Ex: 5"/>
-
-                        <label for="inputBedrooms">Nombre de chambres</label>
-                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Ex: 2"/>
-
-                        <label for="inputAdresse">Adresse</label>
-                        <input type="text" class="form-control mb-3" name="champs6" placeholder="Ex: 10 rue Poulin"/>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputCity">Ville</label>
-                                <input type="text" class="form-control" id="inputCity" placeholder="Ex: Bordeaux">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="inputZip">Code Postal</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="Ex: 33300">
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Vendre</button>
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </form>

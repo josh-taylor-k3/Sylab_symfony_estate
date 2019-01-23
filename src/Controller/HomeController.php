@@ -11,7 +11,7 @@ class HomeController extends AbstractController
 	public function home():Response
 	{
 		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->findAll();
+		$propriete_bien = $repo->latestBien();
 		
 		return $this->render('home.html.twig', [
             'proprieties' => $propriete_bien

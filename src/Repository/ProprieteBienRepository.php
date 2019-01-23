@@ -19,6 +19,16 @@ class ProprieteBienRepository extends ServiceEntityRepository
         parent::__construct($registry, ProprieteBien::class);
     }
 
+    public function latestBien()
+    {
+        return $this->createQueryBuilder('b')
+            ->orderBy('b.make_at', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return ProprieteBien[] Returns an array of ProprieteBien objects
     //  */
