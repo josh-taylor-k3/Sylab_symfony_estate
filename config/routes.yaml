@@ -12,7 +12,7 @@ buy:
 
 show:
     path: /show/{id}
-    controller: App\Controller\HomeController::showHome
+    controller: App\Controller\HomeController::showBienById
 
 sell:
     path: /sell

@@ -39,7 +39,7 @@ class HomeController extends AbstractController
 	 * @param $id
 	 * @return Response
 	 */
-	public function showHome($id):Response
+	public function showBienById($id):Response
 	{
 		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
 		$propriete_bien = $repo->find($id);
