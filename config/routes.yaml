@@ -29,3 +29,9 @@ add:
 edit:
     path: /admin/edit/{id}
     controller: App\Controller\AdminProprieteController::editBien
+    methods: [GET, POST]
+
+delete:
+    path: /admin/delete/{id}
+    controller: App\Controller\AdminProprieteController::deleteBien
+    methods: [POST, DELETE]

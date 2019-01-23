@@ -6,27 +6,8 @@
 
     <div class="container mt-4">
         <h1>Edition du bien</h1>
-        {{ form_start(form) }}
-        <div class="row">
-            <div class="col-md-12">{{ form_row(form.name) }}</div>
-            <div class="col-md-12">{{ form_row(form.description) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.city) }}</div>
-            <div class="col-md-6">{{ form_row(form.address) }}</div>
-            <div class="col-md-2">{{ form_row(form.zip_code) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.nbr_rooms) }}</div>
-            <div class="col-md-4">{{ form_row(form.nbr_bedrooms) }}</div>
-            <div class="col-md-4">{{ form_row(form.surface) }}</div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">{{ form_row(form.price) }}</div>
-            <div class="col-md-4">{{ form_row(form.sold) }}</div>
-        </div>
-            <button class="btn btn-success">Editer</button>
-        {{ form_end(form) }}
+        {# Include form #}
+        {{ include('admin/form.html.twig', {button: 'Editer'}) }}
     </div>
 
 {% endblock %}

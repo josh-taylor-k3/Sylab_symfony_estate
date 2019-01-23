@@ -40,11 +40,15 @@ class AdminProprieteController extends AbstractController
 	}
 
 	/**
+	 * @param Request $request
 	 * @return Response
 	 */
 	public function addBien(Request $request)
 	{
+		// Instance new Bien
 		$proprieteBien = new ProprieteBien();
+
+		// Create Form
 		$form = $this->createForm(ProprieteType::class, $proprieteBien);
 		$form->handleRequest($request);
 
@@ -53,6 +57,9 @@ class AdminProprieteController extends AbstractController
 		{
 			$this->em->persist($proprieteBien);
 			$this->em->flush();
+			// Add confirm message
+			$this->addFlash('success', 'Bien ajouté avec succès !');
+
 			return $this->redirectToRoute('admin');
 		}
 
@@ -77,6 +84,8 @@ class AdminProprieteController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid())
 		{
 			$this->em->flush();
+			// Add confirm message
+			$this->addFlash('success', 'Bien modifié avec succès !');
 			return $this->redirectToRoute('admin');
 		}
 
@@ -84,6 +93,25 @@ class AdminProprieteController extends AbstractController
 			'proprieteBien' => $proprieteBien,
 			'form' => $form->createView()
 		]);
+	}
+
+	/**
+	 * @param ProprieteBien $proprieteBien
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 */
+	public function deleteBien(ProprieteBien $proprieteBien, Request $request)
+	{
+		// Check CSRF token is valid
+		if ($this->isCsrfTokenValid('delete' . $proprieteBien->getId(), $request->get('_token')))
+		{
+			$this->em->remove($proprieteBien);
+			$this->em->flush();
+			// Add confirm message
+			$this->addFlash('success', 'Bien supprimé avec succès !');
+		}
+
+		return $this->redirectToRoute('admin');
 	}
 
 }
