@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -21,6 +22,9 @@ class SellController extends AbstractController
 		$propriete_bien = new ProprieteBien();
 
 		$form = $this->createFormBuilder($propriete_bien)
+			->add('imageFile', VichImageType::class, [
+				'label' => 'Image de la Propriété'
+			])
 			->add('name', TextType::class, [
 				'label' => 'Nom'
 			])
