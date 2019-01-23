@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BuyController extends AbstractController
 {
+	/**
+	 * @return Response
+	 */
 	public function buyHome():Response
 	{
 		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');

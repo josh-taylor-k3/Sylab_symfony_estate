@@ -64,14 +64,14 @@ class ProprieteBien
     /**
      * @ORM\Column(type="smallint")
      */
-    private $sold;
+    private $sold = false;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $make_at;
 
-    public function getId(): ?int
+	public function getId(): ?int
     {
         return $this->id;
     }
