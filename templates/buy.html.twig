@@ -2,9 +2,8 @@
 
 {% block title %} Sylab ! {% endblock %}
 {% block stylesheets %}
-    <link href="{{ asset('static/css/styles.css') }}" rel="stylesheet" />
+    {{ parent() }}
 {% endblock %}
-
 
 {% block body %}
         <div class="jumbotron text-center">

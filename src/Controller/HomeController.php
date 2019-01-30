@@ -2,19 +2,39 @@
 
 namespace App\Controller;
 
-use App\Entity\ProprieteBien;
+use App\Repository\ProprieteBienRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
+
+	/**
+	 * @var ProprieteBienRepository
+	 */
+	private $repository;
+
+	/**
+	 * @var ObjectManager
+	 */
+	private $em;
+
+	// Recuperation du repo par injection #C'estPlusSimple <3
+	public function __construct(ProprieteBienRepository $repository, ObjectManager $em)
+	{
+
+		$this->repository = $repository;
+		$this->em = $em;
+	}
+
 	/**
 	 * @return Response
 	 */
 	public function home():Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->latestBien();
+
+		$propriete_bien = $this->repository->latestBien();
 		
 		return $this->render('home.html.twig', [
             'properties' => $propriete_bien
@@ -26,8 +46,8 @@ class HomeController extends AbstractController
 	 */
 	public function buyHome():Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->findAll();
+
+		$propriete_bien = $this->repository->findAll();
 		
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
@@ -41,8 +61,8 @@ class HomeController extends AbstractController
 	 */
 	public function showBienById($id):Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->find($id);
+
+		$propriete_bien = $this->repository->find($id);
 
 		return $this->render('show.html.twig', [
 			'propriety' => $propriete_bien

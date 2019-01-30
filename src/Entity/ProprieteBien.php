@@ -5,10 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProprieteBienRepository")
  * @Vich\Uploadable
+ * @UniqueEntity("name")
  */
 class ProprieteBien
 {
@@ -21,11 +25,13 @@ class ProprieteBien
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\Length(min=5, max=30)
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+	 * @Assert\Length(min=100, max=1500)
      */
     private $description;
 
@@ -41,16 +47,21 @@ class ProprieteBien
 
     /**
      * @ORM\Column(type="string", length=255)
+	 * @Assert\Regex("/^[0-9]{5}$/")
      */
     private $zip_code;
 
     /**
      * @ORM\Column(type="integer")
+	 * @Assert\GreaterThanOrEqual(
+	 *     value = 1
+	 * )
      */
     private $nbr_rooms;
 
     /**
      * @ORM\Column(type="integer")
+	 * @Assert\Range(min=10, max=1000)
      */
     private $surface;
 

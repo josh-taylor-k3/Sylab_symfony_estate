@@ -3,7 +3,7 @@
 {% block title %} Sylab - Tu achètes !{% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('static/css/styles.css') }}" rel="stylesheet" />
+    {{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -30,15 +30,15 @@
                 <table class="table table-striped">
                     <tr>
                         <td>Surface habitable</td>
-                        <td>{{ propriety.surface }} m2</td>
+                        <td>{{ propriety.surface }} m²</td>
                     </tr>
                     <tr>
-                        <td>Piece</td>
+                        <td>Pieces</td>
                         <td>{{ propriety.nbrrooms }} pieces</td>
                     </tr>
                     <tr>
                         <td>Chambres</td>
-                        <td>{{ propriety.nbrbedrooms }} chambre</td>
+                        <td>{{ propriety.nbrbedrooms }} chambres</td>
                     </tr>
                     <tr>
                         <td>Adresse</td>

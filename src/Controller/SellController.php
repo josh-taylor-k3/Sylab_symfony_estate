@@ -5,12 +5,9 @@ namespace App\Controller;
 use App\Entity\ProprieteBien;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +18,7 @@ class SellController extends AbstractController
 	{
 		$propriete_bien = new ProprieteBien();
 
+		// Create Form
 		$form = $this->createFormBuilder($propriete_bien)
 			->add('imageFile', VichImageType::class, [
 				'label' => 'Image de la Propriété'
@@ -63,6 +61,7 @@ class SellController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
+            // Set datetime "NOW"
 			$current_time = new \DateTime();
 			// Recup data
             $formData = $form->getData();

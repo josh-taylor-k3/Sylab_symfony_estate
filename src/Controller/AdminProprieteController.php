@@ -12,16 +12,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdminProprieteController extends AbstractController
 {
+
 	/**
 	 * @var ProprieteBienRepository
 	 */
 	private $repository;
+
 	/**
 	 * @var ObjectManager
 	 */
 	private $em;
 
-	// Recuperation du repo par injection
+	// Recuperation du repo par injection #C'estPlusSimple <3
 	public function __construct(ProprieteBienRepository $repository, ObjectManager $em)
 	{
 		$this->repository = $repository;
@@ -102,9 +104,10 @@ class AdminProprieteController extends AbstractController
 	 */
 	public function deleteBien(ProprieteBien $proprieteBien, Request $request)
 	{
-		// Check CSRF token is valid
+		// Check CSRF token is valid, id of proprieteBien
 		if ($this->isCsrfTokenValid('delete' . $proprieteBien->getId(), $request->get('_token')))
 		{
+			// Remove
 			$this->em->remove($proprieteBien);
 			$this->em->flush();
 			// Add confirm message
