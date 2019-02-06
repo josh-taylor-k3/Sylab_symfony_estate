@@ -39,7 +39,7 @@
     border-color: white;
 }
 #footer{
-    background-color: #efc6c0;
+    background-color: rgb(192, 135, 126);
 }
 #footer a{
     color: rgb(248, 248, 248);
@@ -48,7 +48,7 @@
     text-decoration: none;
 }
 #copyright{
-    background-color: #AF8A84;
+    background-color: rgb(124, 80, 73);
 }
 #copyright p{
    color: white;
