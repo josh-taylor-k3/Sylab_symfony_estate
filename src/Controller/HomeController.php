@@ -65,6 +65,9 @@ class HomeController extends AbstractController
 	 * @param ContactNotification $contactNotification
 	 * @param $id
 	 * @return Response
+	 * @throws \Twig_Error_Loader
+	 * @throws \Twig_Error_Runtime
+	 * @throws \Twig_Error_Syntax
 	 */
 	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id):Response
 	{
