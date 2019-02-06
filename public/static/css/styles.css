@@ -1,26 +1,41 @@
 /*   Styles home   */
-#search-home{
-    background-image: url(../img/home/fond-search-home.png);
-    height: 364px;
+#fond-home{
+    background-image: url(../img/home/fond-search-home.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-#search-home a{
-    background-color: #CC0033;
+#fond-home a{
+    background-color: #ffffff;
+    color: #c0786e;
 }
 
-#search-home h2{
+#fond-home  h2{
     margin-top: 25px;
     text-shadow: 0 3px 5px #555;
+}
+
+#icon-arrow{
+    text-align: center;
+}
+
+#icon-arrow:hover{
+    cursor: pointer;
 }
 
 .card-hover:hover{
     text-decoration: none;
     color: red;
 }
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#btn-contact{
+    background-color: #CC0033; 
+    border-color: white;
+}
 #info-icon{
-    background-image: url(../img/home/footer-background.png);
+    /*background-image: url(../img/home/footer-background.png);*/
     background-position-y: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -35,4 +50,7 @@
 #img-size{
     width: 700px;
     height: 300px;
+}
+#navbar{
+    background-color: rgba(0, 0, 0, 0);
 }
