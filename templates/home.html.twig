@@ -27,7 +27,7 @@
                 <h3>Les derniers biens</h3>
             </div>
 
-            <div class="col-md-12 text-center mt-3">
+            <div id="card-center" class="col-md-12 text-center mt-3">
                 <div class="row">
                 {% for property in properties %}
                     <div class="col-md-4">
@@ -72,7 +72,7 @@
 
     <div id="footer" class="mt-5">
         <div class="container">
-            <div class="row pt-5 pb-5">
+            <div id="footer-center" class="row pt-5 pb-5">
                 <div class="col-md-3 text-light">
                     <h2>Sylab</h2>
                     <p>Slogan du site mdrr</p>
@@ -96,11 +96,11 @@
                 </div>
             </div>
         </div>
-
-        <div id="copyright">
-            <p>Copyright - Quentin Gans & Lucas Consejo</p>
-        </div>
     </div> 
+
+    <div id="copyright">
+        <p>Copyright - Quentin Gans & Lucas Consejo</p>
+    </div>
 
 {% endblock %}
 
@@ -115,7 +115,7 @@
             scrollTop: $(window).height()-50
             }, 700)
         });
-        
+
         $(window).scroll(function() {
             if($(document).scrollTop() > 130){
                 $('.navbar').css('background-color', "#efc6c0");

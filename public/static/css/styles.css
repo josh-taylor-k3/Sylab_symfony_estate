@@ -6,7 +6,7 @@
 #fond-home{
     background-image: url(../img/home/fond-search-home.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+
 }
 
 #fond-home a{
@@ -26,7 +26,9 @@
 #icon-arrow:hover{
     cursor: pointer;
 }
-
+.card{
+    margin:0 auto;
+}
 .card-hover:hover{
     text-decoration: none;
     color: red;
@@ -40,6 +42,9 @@
 }
 #footer{
     background-color: rgb(192, 135, 126);
+}
+#footer-center{
+    margin-left: 35px;
 }
 #footer a{
     color: rgb(248, 248, 248);
