@@ -29,9 +29,9 @@ class ContactNotification extends AbstractController
 	public function notification(Contact $contact)
 	{
 		// New mail
-		$message = (new \Swift_Message('Le sujet + nom du bien : ' . $contact->getProprieteBien()->getName()))
-			->setFrom('send@example.com')
-			->setTo('recipient@example.com')
+		$message = (new \Swift_Message('Demande de contact pour le bien : ' . $contact->getProprieteBien()->getName()))
+			->setFrom('noreply@sylab.fr')
+			->setTo('contact@sylab.fr')
 			->setBody($this->environment->render('contact/contact.html.twig', [
 				'contact' => $contact
 			]), 'text/html');

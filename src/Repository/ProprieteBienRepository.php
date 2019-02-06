@@ -21,7 +21,7 @@ class ProprieteBienRepository extends ServiceEntityRepository
 
 	/**
 	 * See 3 latest property
-	 * @return mixed
+	 * @return ProprieteBien[]
 	 */
 	public function latestBien()
     {

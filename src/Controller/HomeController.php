@@ -62,11 +62,11 @@ class HomeController extends AbstractController
 	/**
 	 * @param ProprieteBien $proprieteBien
 	 * @param Request $request
-	 * @param ContactNotification $notification
+	 * @param ContactNotification $contactNotification
 	 * @param $id
 	 * @return Response
 	 */
-	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $notification, $id):Response
+	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id):Response
 	{
 
 		$propriete_bien = $this->repository->find($id);
@@ -82,7 +82,7 @@ class HomeController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid())
 		{
 			// Send notification
-			$notification->notification($contact);
+			$contactNotification->notification($contact);
 			// Add flash message
 			$this->addFlash('success', 'Votre email a bien ');
 			return $this->redirectToRoute('home');
