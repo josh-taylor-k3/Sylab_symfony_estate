@@ -21,8 +21,8 @@
         </div>
     </div>
 
-    <div id="biens-recents" class="container">
-        <div class="row">
+    <div class="container">
+        <div id="biens-recents" class="row">
             <div class="col-md-12 text-center">
                 <h3>Les derniers biens</h3>
             </div>
@@ -46,32 +46,61 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="info-icon" class="jumbotron mt-5">
-        <div id="footer">
+        <div id="info-icon" class="mt-5">
             <div class="row">
                 <div class="col-md-4 text-center">
                     <img class="" src="/static/img/home/icons/icon-smile.png" alt="Icon">
-                    <p class="mt-2"><strong>Plus de 2 millions</strong><br>
-                        de clients nous ont fait confiance</p>
+                    <h5 class="mt-2">Plus de 2 millions</h5>
+                    <p>de clients nous ont fait confiance</p>
                 </div>
 
-                 <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center">
                     <img class="" src="/static/img/home/icons/icon-home.png" alt="Icon">
-                     <p class="mt-2"><strong>5 millions</strong><br>
-                         de personnes logées</p>
+                    <h5 class="mt-2">5 millions</h5>
+                    <p>de personnes logées</p>
                 </div>
 
-                 <div class="col-md-4 text-center">
+                <div class="col-md-4 text-center">
                     <img class="" src="/static/img/home/icons/icon-businessman.png" alt="Icon">
-                    <p class="mt-2"><strong>Une expertise</strong><br>
-                        partout en France</p>
+                    <h5 class="mt-2">Une expertise</h5>
+                    <p>partout en France</p>
                 </div>
             </div>
         </div>
     </div>
-    
+
+    <div id="footer" class="mt-5">
+        <div class="container">
+            <div class="row pt-5 pb-5">
+                <div class="col-md-3">
+                    <h2 class="text-light">Sylab</h2>
+                </div>
+
+                <div class="col-md-3">
+                    <a href="{{ path('buy') }}"><h5>Acheter</h5></a>
+                    <a href="{{ path('sell') }}"><h5>Vendre</h5></a>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-light">Réseaux sociaux</h5>
+                    <a href="https://www.facebook.com" target="_blank">Facebook</a><br>
+                    <a href="https://www.twitter.com" target="_blank">Twitter</a><br>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-light">Contact</h5>
+                    <a href="tel:0556900010">Tél : 05 56 90 00 10</a><br>
+                    <a href="mailto:contact@sylab.fr">Email : contact@sylab.fr</a><br>
+                </div>
+            </div>
+        </div>
+
+        <div id="copyright">
+            <p>Copyright - Quentin Gans & Lucas Consejo</p>
+        </div>
+    </div> 
+
 {% endblock %}
 
 {% block javascripts %}

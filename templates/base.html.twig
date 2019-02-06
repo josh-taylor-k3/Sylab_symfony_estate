@@ -11,22 +11,24 @@
     </head>
     <body>
         <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="{{ path('home') }}">
-                Sylab
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <!-- Si on est sur la page lien actif -->
-                    <a class="nav-link {% if current_menu is defined and current_menu == 'buy_properties' %}active{% endif %}" href="{{ path('buy') }}">Acheter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if current_menu is defined and current_menu == 'sell_properties' %}active{% endif %}" href="{{ path('sell') }}">Vendre</a>
-                </li>
-                </ul>
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    Sylab
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <!-- Si on est sur la page lien actif -->
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'buy_properties' %}active{% endif %}" href="{{ path('buy') }}">Acheter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if current_menu is defined and current_menu == 'sell_properties' %}active{% endif %}" href="{{ path('sell') }}">Vendre</a>
+                    </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         {% block body %}{% endblock %}

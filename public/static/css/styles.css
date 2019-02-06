@@ -1,4 +1,8 @@
 /*   Styles home   */
+
+#navbar{
+    background-color: rgba(0, 0, 0, 0);
+}
 #fond-home{
     background-image: url(../img/home/fond-search-home.jpg);
     background-size: cover;
@@ -34,12 +38,24 @@
     background-color: #CC0033; 
     border-color: white;
 }
-#info-icon{
-    /*background-image: url(../img/home/footer-background.png);*/
-    background-position-y: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-size: 1.5em;
+#footer{
+    background-color: #efc6c0;
+}
+#footer a{
+    color: rgb(248, 248, 248);
+}
+#footer a:hover{
+    text-decoration: none;
+}
+#copyright{
+    background-color: #AF8A84;
+}
+#copyright p{
+   color: white;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   text-align: center;
+   margin: 0;
 }
 .img-size{
     height: 150px;
@@ -50,7 +66,4 @@
 #img-size{
     width: 700px;
     height: 300px;
-}
-#navbar{
-    background-color: rgba(0, 0, 0, 0);
 }
