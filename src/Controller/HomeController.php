@@ -2,19 +2,43 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
 use App\Entity\ProprieteBien;
+use App\Form\ContactType;
+use App\Repository\ProprieteBienRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
 {
+
+	/**
+	 * @var ProprieteBienRepository
+	 */
+	private $repository;
+
+	/**
+	 * @var ObjectManager
+	 */
+	private $em;
+
+	// Recuperation du repo par injection #C'estPlusSimple <3
+	public function __construct(ProprieteBienRepository $repository, ObjectManager $em)
+	{
+
+		$this->repository = $repository;
+		$this->em = $em;
+	}
+
 	/**
 	 * @return Response
 	 */
 	public function home():Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->latestBien();
+
+		$propriete_bien = $this->repository->latestBien();
 		
 		return $this->render('home.html.twig', [
             'properties' => $propriete_bien
@@ -26,8 +50,8 @@ class HomeController extends AbstractController
 	 */
 	public function buyHome():Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->findAll();
+
+		$propriete_bien = $this->repository->findAll();
 		
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
@@ -36,16 +60,37 @@ class HomeController extends AbstractController
 	}
 
 	/**
+	 * @param ProprieteBien $proprieteBien
+	 * @param Request $request
+	 * @param ContactNotification $notification
 	 * @param $id
 	 * @return Response
 	 */
-	public function showBienById($id):Response
+	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $notification, $id):Response
 	{
-		$repo =  $this->getDoctrine()->getRepository('App:ProprieteBien');
-		$propriete_bien = $repo->find($id);
+
+		$propriete_bien = $this->repository->find($id);
+
+		// Instance new contact
+		$contact = new Contact();
+		// On set le bien dans lequel nous sommes
+		$contact->setProprieteBien($proprieteBien);
+
+		$form = $this->createForm(ContactType::class, $contact);
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid())
+		{
+			// Send notification
+			$notification->notification($contact);
+			// Add flash message
+			$this->addFlash('success', 'Votre email a bien ');
+			return $this->redirectToRoute('home');
+		}
 
 		return $this->render('show.html.twig', [
-			'propriety' => $propriete_bien
+			'propriety' => $propriete_bien,
+			'form' => $form->createView()
 		]);
 	}
 }

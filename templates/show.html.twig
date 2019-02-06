@@ -3,7 +3,7 @@
 {% block title %} Sylab - Tu achètes !{% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('static/css/styles.css') }}" rel="stylesheet" />
+    {{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -19,6 +19,22 @@
                     <div class="text" style="font-size: 4rem;font-weight: bold;">{{ propriety.price| number_format(0, ",", " ") }}€</div>
                     <div class="btn btn-primary mt-3"> Contacter l'agence</div>
                 </div>
+                <div class="col-md-12 mt-5">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col">{{ form_row(form.firstname) }}</div>
+                        <div class="col">{{ form_row(form.lastname) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ form_row(form.email) }}</div>
+                        <div class="col">{{ form_row(form.phone) }}</div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <button class="btn-primary">Envoyer le mail</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
     </div>
@@ -30,15 +46,15 @@
                 <table class="table table-striped">
                     <tr>
                         <td>Surface habitable</td>
-                        <td>{{ propriety.surface }} m2</td>
+                        <td>{{ propriety.surface }} m²</td>
                     </tr>
                     <tr>
-                        <td>Piece</td>
+                        <td>Pieces</td>
                         <td>{{ propriety.nbrrooms }} pieces</td>
                     </tr>
                     <tr>
                         <td>Chambres</td>
-                        <td>{{ propriety.nbrbedrooms }} chambre</td>
+                        <td>{{ propriety.nbrbedrooms }} chambres</td>
                     </tr>
                     <tr>
                         <td>Adresse</td>
