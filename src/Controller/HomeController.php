@@ -27,7 +27,6 @@ class HomeController extends AbstractController
 	// Recuperation du repo par injection #C'estPlusSimple <3
 	public function __construct(ProprieteBienRepository $repository, ObjectManager $em)
 	{
-
 		$this->repository = $repository;
 		$this->em = $em;
 	}
@@ -37,7 +36,6 @@ class HomeController extends AbstractController
 	 */
 	public function home():Response
 	{
-
 		$propriete_bien = $this->repository->latestBien();
 		
 		return $this->render('home.html.twig', [
@@ -50,7 +48,6 @@ class HomeController extends AbstractController
 	 */
 	public function buyHome():Response
 	{
-
 		$propriete_bien = $this->repository->findAll();
 		
 		return $this->render('buy.html.twig', [
@@ -71,7 +68,6 @@ class HomeController extends AbstractController
 	 */
 	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id):Response
 	{
-
 		$propriete_bien = $this->repository->find($id);
 
 		// Instance new contact
@@ -87,8 +83,7 @@ class HomeController extends AbstractController
 			// Send notification
 			$contactNotification->notification($contact);
 			// Add flash message
-			$this->addFlash('success', 'Votre email a bien ');
-			return $this->redirectToRoute('home');
+			$this->addFlash('success', 'Votre email à été bien envoyer');
 		}
 
 		return $this->render('show.html.twig', [
