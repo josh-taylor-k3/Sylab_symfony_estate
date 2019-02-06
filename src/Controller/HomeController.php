@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Entity\ProprieteBien;
+use App\Form\ContactType;
 use App\Repository\ProprieteBienRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class HomeController extends AbstractController
@@ -56,16 +60,37 @@ class HomeController extends AbstractController
 	}
 
 	/**
+	 * @param ProprieteBien $proprieteBien
+	 * @param Request $request
+	 * @param ContactNotification $notification
 	 * @param $id
 	 * @return Response
 	 */
-	public function showBienById($id):Response
+	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $notification, $id):Response
 	{
 
 		$propriete_bien = $this->repository->find($id);
 
+		// Instance new contact
+		$contact = new Contact();
+		// On set le bien dans lequel nous sommes
+		$contact->setProprieteBien($proprieteBien);
+
+		$form = $this->createForm(ContactType::class, $contact);
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid())
+		{
+			// Send notification
+			$notification->notification($contact);
+			// Add flash message
+			$this->addFlash('success', 'Votre email a bien ');
+			return $this->redirectToRoute('home');
+		}
+
 		return $this->render('show.html.twig', [
-			'propriety' => $propriete_bien
+			'propriety' => $propriete_bien,
+			'form' => $form->createView()
 		]);
 	}
 }

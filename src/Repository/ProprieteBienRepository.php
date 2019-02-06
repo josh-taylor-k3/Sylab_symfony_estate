@@ -26,6 +26,7 @@ class ProprieteBienRepository extends ServiceEntityRepository
 	public function latestBien()
     {
         return $this->createQueryBuilder('b')
+			->andwhere('b.sold = false')
             ->orderBy('b.make_at', 'DESC')
             ->setMaxResults(3)
             ->getQuery()
