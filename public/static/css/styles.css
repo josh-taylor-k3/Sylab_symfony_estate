@@ -6,7 +6,6 @@
 #fond-home{
     background-image: url(../img/home/fond-search-home.jpg);
     background-size: cover;
-
 }
 
 #fond-home a{
@@ -18,7 +17,14 @@
     margin-top: 25px;
     text-shadow: 0 3px 5px #555;
 }
+#fond-buy, #fond-sell{
+    background-image: url(../img/home/fond-search-home.jpg);
+    background-size: cover;
+}
 
+.jumbotron{
+    border-radius: 0;
+}
 #icon-arrow{
     text-align: center;
 }
