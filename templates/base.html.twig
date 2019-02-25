@@ -33,6 +33,41 @@
             </div>
         </nav>
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <div id="footer" class="mt-5">
+                <div class="container">
+                    <div id="footer-center" class="row pt-5 pb-5">
+                        <div class="col-md-3 text-light">
+                            <h2>Sylab</h2>
+                            <p>Slogan du site mdrr</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <a href="{{ path('buy') }}"><h5>Acheter</h5></a>
+                            <a href="{{ path('sell') }}"><h5>Vendre</h5></a>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5 class="text-light">Réseaux sociaux</h5>
+                            <a href="https://www.facebook.com" target="_blank">Facebook</a><br>
+                            <a href="https://www.twitter.com" target="_blank">Twitter</a><br>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5 class="text-light">Contact</h5>
+                            <a href="tel:0556900010">Tél : 05 56 90 00 10</a><br>
+                            <a href="mailto:contact@sylab.fr">Email : contact@sylab.fr</a><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="copyright">
+                <p>Copyright - Quentin Gans & Lucas Consejo</p>
+            </div>
+        {% endblock %}
+
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

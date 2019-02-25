@@ -83,7 +83,7 @@ class HomeController extends AbstractController
 			// Send notification
 			$contactNotification->notification($contact);
 			// Add flash message
-			$this->addFlash('success', 'Votre email à été bien envoyer');
+			$this->addFlash('success', 'Votre email à bien été envoyé');
 		}
 
 		return $this->render('show.html.twig', [
