@@ -25,7 +25,6 @@ class ProprieteBien
 
     /**
      * @ORM\Column(type="string", length=255)
-	 * @Assert\Length(min=5, max=30)
      */
     private $name;
 

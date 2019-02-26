@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\ProprieteBien;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -26,13 +27,25 @@ class ProprieteBienRepository extends ServiceEntityRepository
 	public function latestBien()
     {
         return $this->createQueryBuilder('b')
-			->andwhere('b.sold = false')
+			->where('b.sold = false')
             ->orderBy('b.make_at', 'DESC')
             ->setMaxResults(3)
             ->getQuery()
             ->getResult()
         ;
     }
+
+	/**
+	 * @return Query
+	 */
+	public function findAllVisibleBien(): Query
+	{
+		return $this->createQueryBuilder('b')
+			->where('b.sold = false')
+			->getQuery()
+		;
+
+	}
 
     // /**
     //  * @return ProprieteBien[] Returns an array of ProprieteBien objects

@@ -18,10 +18,10 @@
                 <!-- Condition for -->
                 {% for property in properties %}
                 <div class="col-4 mt-3">
-                <a href="{{ path('show', {id: property.id }) }}" class="text-dark  card-hover">
+                    <a href="{{ path('show', {id: property.id }) }}" class="text-dark  card-hover">
                     <div class="card">
                         <div class="card-body">
-                            <img class="card-img-top img-size-2" src="{{ asset('upload/img/image_bien/') }}{{ property.image }}" alt="Card image cap">
+                            <img class="card-img-top img-size-2" src="{{ asset('upload/img/image_bien/') }}{{ property.image }}" alt="Card image cap"/>
                                 <h5 class="card-title">
                                     <p class="text-center">{{ property.name }}</p>
                                 </h5>
@@ -30,7 +30,13 @@
                         </div>
                     </div>
                 </div>
-                 {% endfor %}
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="panigation mt-5 text-right">
+                {# (l'objet qui est paginable) #}
+                {{ knp_pagination_render(properties) }}
             </div>
         </div>
 

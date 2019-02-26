@@ -7,6 +7,7 @@ use App\Entity\ProprieteBien;
 use App\Form\ContactType;
 use App\Repository\ProprieteBienRepository;
 use Doctrine\Common\Persistence\ObjectManager;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,11 +45,17 @@ class HomeController extends AbstractController
 	}
 
 	/**
+	 * @param PaginatorInterface $paginator
+	 * @param Request $request
 	 * @return Response
 	 */
-	public function buyHome():Response
+	public function buyHome(PaginatorInterface $paginator, Request $request):Response
 	{
-		$propriete_bien = $this->repository->findAll();
+		$propriete_bien = $paginator->paginate(
+			$this->repository->findAllVisibleBien(),
+			$request->query->getInt('page', 1),
+			6
+		);
 		
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
