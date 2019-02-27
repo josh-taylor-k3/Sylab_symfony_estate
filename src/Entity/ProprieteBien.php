@@ -280,7 +280,6 @@ class ProprieteBien
 
 
 	/**
-	 * Get a slug
 	 * @return string
 	 */
 	public function getSlug(): string
