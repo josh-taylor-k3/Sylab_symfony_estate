@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ExceptionController extends AbstractController
 {
 	/**
+	 * @param FlattenException $exception
 	 * @return Response
 	 */
 	public function showException(FlattenException $exception):Response
