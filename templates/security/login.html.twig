@@ -36,7 +36,11 @@
 
 {% block javascripts %}
     <script type="text/javascript">
-        $('.navbar').css('background-color', "#3c5b52");
         $('.navbar').css('position', "relative");
+        $('.navbar').css('background-color', "#3c5b52");
+
+        $('#footer').css('position', "absolute");
+        $('#footer').css('bottom', "0");
+        $('#footer').css('width', "100%");
     </script>
 {% endblock %}

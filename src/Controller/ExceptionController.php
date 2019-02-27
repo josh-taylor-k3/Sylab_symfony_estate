@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ExceptionController extends AbstractController
 {
 	/**
+	 * @param FlattenException $exception
 	 * @return Response
 	 */
 	public function showException(FlattenException $exception):Response
@@ -18,7 +19,7 @@ class ExceptionController extends AbstractController
         $code = $exception->getStatusCode();
 
 		return $this->render('bundles/TwigBundle/Exception/error404.html.twig', [
-            'status_code' => $code
-        ]);
+			'status_code' => $code
+		]);
 	}
 }

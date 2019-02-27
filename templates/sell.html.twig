@@ -14,21 +14,57 @@
     </div>
 
     <div class="container">
-        {{ form_start(form, 
-            {'attr': {'novalidate': 'novalidate'}}) 
-        }}
-
-        {{ form_rest(form) }}
-
-        {{ form_end(form) }}
+        {# Include form #}
+        {{ include('sell_form/sell_form.html.twig') }}
     </div>
 
 {% endblock %}
 
 {% block javascripts %}
     <script type="text/javascript">
-        $(window).scroll(function() {
+        var file;
+
+        function upload_file(event){
+            event.preventDefault();
+            file = event.dataTransfer.files[0];
+            console.log(file)
+            $("#box .col-form-label").text(file.name);
+        }   
+        $(".custom-file input").change(function() {
+            file = this.files[0];
+            $("#box .col-form-label").text(file.name);
+        })    
+      
+        function ajax_file_upload(file){
+            let form_data = new FormData();
+            form_data.append('sell[imageFile][file]', file);
+            $.ajax({
+                type:"POST",
+                url:"/",
+                contentType: false,
+                processData: false,
+                data: form_data,
+                success: function(response){
+                }
+            });
+        }
+        $('#sell_save').click(() => {
+            if(file != undefined){
+                ajax_file_upload(file);
+            }
+            else{
+                event.preventDefault();
+            }
+        })
+
+        $('.navbar').css('position', "relative");
+        $('.navbar').css('background-color', "#3c5b52");
+
+        $(window).scroll(() => {
             if($(document).scrollTop() > 10){
+                $('.navbar').css('position', "fixed");
+                $('.navbar').css('top', "0");
+                $('.navbar').css('width', "100%");
                 $('.navbar').css('background-color', "#3c5b52");
                 $('.navbar').css('box-shadow', "0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19)");
             }

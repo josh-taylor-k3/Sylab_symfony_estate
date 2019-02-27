@@ -3,12 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\ProprieteBien;
-
+use App\Form\SellType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -19,42 +15,7 @@ class SellController extends AbstractController
 		$propriete_bien = new ProprieteBien();
 
 		// Create Form
-		$form = $this->createFormBuilder($propriete_bien)
-			->add('imageFile', VichImageType::class, [
-				'label' => 'Image de la Propriété'
-			])
-			->add('name', TextType::class, [
-				'label' => 'Nom'
-			])
-			->add('description', TextType::class, [
-				'label' => 'Description'
-			])
-			->add('city', TextType::class, [
-				'label' => 'Ville'
-			])
-			->add('address', TextType::class, [
-				'label' => 'Adresse'
-			])
-			->add('zip_code', TextType::class, [
-				'label' => 'Code Postal'
-			])
-			->add('nbr_rooms', IntegerType::class, [
-				'label' => 'Nombre de pièces'
-			])
-			->add('surface', IntegerType::class, [
-				'label' => 'Surface'
-			])
-			->add('nbr_bedrooms', IntegerType::class, [
-				'label' => 'Nombre de chambres'
-			])
-			->add('price', IntegerType::class, [
-				'label' => 'Prix'
-			])
-			->add('save', SubmitType::class, [
-				'label' => 'Vendre'
-			])
-			->getForm();
-
+		$form = $this->createForm(SellType::class, $propriete_bien);
 		$form->handleRequest($request);
 
 		// Check form
