@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProprieteBienRepository")
@@ -66,6 +66,9 @@ class ProprieteBien
 
     /**
      * @ORM\Column(type="integer")
+	 * @Assert\GreaterThanOrEqual(
+	 *     value = 1
+	 * )
      */
     private $nbr_bedrooms;
 
@@ -274,4 +277,13 @@ class ProprieteBien
 
         return $this;
     }
+
+
+	/**
+	 * @return string
+	 */
+	public function getSlug(): string
+	{
+		return (new Slugify())->slugify($this->name);
+	}
 }

@@ -51,6 +51,7 @@ class HomeController extends AbstractController
 	 */
 	public function buyHome(PaginatorInterface $paginator, Request $request):Response
 	{
+		// Pagination
 		$propriete_bien = $paginator->paginate(
 			$this->repository->findAllVisibleBien(),
 			$request->query->getInt('page', 1),
@@ -68,13 +69,23 @@ class HomeController extends AbstractController
 	 * @param Request $request
 	 * @param ContactNotification $contactNotification
 	 * @param $id
+	 * @param $slug
 	 * @return Response
 	 * @throws \Twig_Error_Loader
 	 * @throws \Twig_Error_Runtime
 	 * @throws \Twig_Error_Syntax
 	 */
-	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id):Response
+	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id, string $slug):Response
 	{
+		// Verif slug
+		if ($proprieteBien->getSlug() !== $slug)
+		{
+			return $this->redirectToRoute('show', [
+				'id' => $proprieteBien->getId(),
+				'slug' => $proprieteBien->getSlug()
+			], 301);
+		}
+
 		$propriete_bien = $this->repository->find($id);
 
 		// Instance new contact
@@ -91,6 +102,11 @@ class HomeController extends AbstractController
 			$contactNotification->notification($contact);
 			// Add flash message
 			$this->addFlash('success', 'Votre email à bien été envoyé');
+
+			return $this->redirectToRoute('show', [
+				'id' => $proprieteBien->getId(),
+				'slug' => $proprieteBien->getSlug()
+			]);
 		}
 
 		return $this->render('show.html.twig', [

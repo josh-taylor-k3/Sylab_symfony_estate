@@ -31,7 +31,7 @@
                 <div class="row">
                 {% for property in properties %}
                     <div class="col-md-4">
-                        <a href="{{ path('show', {id: property.id }) }}" class="text-dark  card-hover">
+                        <a href="{{ path('show', {id: property.id, slug: property.slug}) }}" class="text-dark  card-hover">
                             <div class="card" style="width: 18rem;">
                                 <img class="card-img-top img-size" src="{{ asset('upload/img/image_bien/') }}{{ property.image }}" alt="Card image cap">
                                 <div class="card-body">
@@ -78,18 +78,19 @@
         $('.vertical-center').css('margin-top', $(window).height() /5);
         $('#icon-arrow').css('margin-top', $(window).height() - 450);
 
-        $("#icon-arrow").click(function() {
+        $("#icon-arrow").click(() => {
             $('html, body').animate({
             scrollTop: $(window).height()-50
             }, 700)
         });
 
-        $(window).scroll(function() {
+        $(window).scroll(() => {
             if($(document).scrollTop() > 130){
                 $('.navbar').css('background-color', "#3c5b52");
                 $('.navbar').css('box-shadow', "0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19)");
             }
-            else{
+            else
+            {
                 $('.navbar').css('background-color', "#3c5b5200");
                 $('.navbar').css('box-shadow', "none");
             }

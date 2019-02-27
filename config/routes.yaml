@@ -11,9 +11,10 @@ buy:
     controller: App\Controller\HomeController::buyHome
 
 show:
-    path: /show/{id}
+    path: /show/{slug}-{id}
     controller: App\Controller\HomeController::showBienById
-
+    requirements:
+        slug: '[a-z0-9\-]*'
 sell:
     path: /sell
     controller: App\Controller\SellController::sellHome

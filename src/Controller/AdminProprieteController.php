@@ -37,6 +37,7 @@ class AdminProprieteController extends AbstractController
 	{
 		$property = $this->repository->findAll();
 		return $this->render('admin/index.html.twig', [
+			'current_menu' => 'admin_menu',
 			'properties' => $property
 		]);
 	}
