@@ -18,6 +18,10 @@ sell:
     path: /sell
     controller: App\Controller\SellController::sellHome
 
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
 admin:
     path: /admin
     controller: App\Controller\AdminProprieteController::index
@@ -35,3 +39,6 @@ delete:
     path: /admin/delete/{id}
     controller: App\Controller\AdminProprieteController::deleteBien
     methods: [POST, DELETE]
+
+logout:
+    path: /logout
