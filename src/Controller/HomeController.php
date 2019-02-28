@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Entity\ProprieteBien;
+use App\Entity\ProprieteBienSearch;
 use App\Form\ContactType;
+use App\Form\ProprieteBienSearchType;
 use App\Repository\ProprieteBienRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
@@ -51,16 +53,23 @@ class HomeController extends AbstractController
 	 */
 	public function buyHome(PaginatorInterface $paginator, Request $request):Response
 	{
+
+		// Search options
+		$search = new ProprieteBienSearch();
+		$form = $this->createForm(ProprieteBienSearchType::class, $search);
+		$form->handleRequest($request);
+
 		// Pagination
 		$propriete_bien = $paginator->paginate(
-			$this->repository->findAllVisibleBien(),
+			$this->repository->findAllVisibleBien($search),
 			$request->query->getInt('page', 1),
 			6
 		);
 		
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
-			'properties' => $propriete_bien
+			'properties' => $propriete_bien,
+			'form' => $form->createView()
 		]);
 	}
 

@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\ProprieteBien;
+use App\Entity\ProprieteBienSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -36,15 +38,51 @@ class ProprieteBienRepository extends ServiceEntityRepository
     }
 
 	/**
-	 * @return Query
+	 * @return \Doctrine\ORM\QueryBuilder
 	 */
-	public function findAllVisibleBien(): Query
+	public function findVisibleBien(): QueryBuilder
 	{
 		return $this->createQueryBuilder('b')
-			->where('b.sold = false')
-			->getQuery()
-		;
+			->where('b.sold = false');
+	}
 
+	/**
+	 * @param ProprieteBienSearch $search
+	 * @return Query
+	 */
+	public function findAllVisibleBien(ProprieteBienSearch $search): Query
+	{
+		$query = $this->findVisibleBien();
+
+		if ($search->getMaxPrice())
+		{
+			$query = $query
+				->andWhere('b.price <= :maxprice')
+				->setParameter('maxprice', $search->getMaxPrice());
+		}
+
+		if ($search->getMinSurface())
+		{
+			$query = $query
+				->andWhere('b.surface >= :minsurface')
+				->setParameter('minsurface', $search->getMinSurface());
+		}
+
+		if ($search->getMinRooms())
+		{
+			$query = $query
+				->andWhere('b.nbr_rooms >= :minrooms')
+				->setParameter('minrooms', $search->getMinRooms());
+		}
+
+		if ($search->getMinBedrooms())
+		{
+			$query = $query
+				->andWhere('b.nbr_bedrooms >= :minbedrooms')
+				->setParameter('minbedrooms', $search->getMinBedrooms());
+		}
+
+		return $query->getQuery();
 	}
 
     // /**
