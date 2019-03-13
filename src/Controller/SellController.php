@@ -16,7 +16,7 @@ class SellController extends AbstractController
 
 		// Create Form
 		$form = $this->createForm(SellType::class, $propriete_bien);
-		$form->handleRequest($request);
+        $form->handleRequest($request);
 
 		// Check form
         if ($form->isSubmitted() && $form->isValid()) {
@@ -26,6 +26,8 @@ class SellController extends AbstractController
 			$current_time = new \DateTime();
 			// Recup data
             $formData = $form->getData();
+            dump($formData);
+            die();
 
             $propriete_bien->setName($formData->getName());
             $propriete_bien->setDescription($formData->getDescription());
@@ -44,6 +46,10 @@ class SellController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
+        /*$session =$this->get('session');
+        $imagesUploaded = $session->get('imagesUploaded');
+        $imagesUploaded[] = $imageCreated
+        $session->set('imagesUploaded',$imagesUploaded);*/
 
 		return $this->render('sell.html.twig', [
 			'current_menu' => "sell_properties",

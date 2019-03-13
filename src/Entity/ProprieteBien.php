@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
@@ -105,11 +107,21 @@ class ProprieteBien
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="ProprieteBien")
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
 
 	public function getId(): ?int
-	{
-		return $this->id;
-	}
+                        	{
+                        		return $this->id;
+                        	}
 
     public function getName(): ?string
     {
@@ -278,12 +290,42 @@ class ProprieteBien
         return $this;
     }
 
-
 	/**
 	 * @return string
 	 */
 	public function getSlug(): string
-	{
-		return (new Slugify())->slugify($this->name);
-	}
+    {
+        return (new Slugify())->slugify($this->name);
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProprieteBien($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getProprieteBien() === $this) {
+                $image->setProprieteBien(null);
+            }
+        }
+
+        return $this;
+    }
 }

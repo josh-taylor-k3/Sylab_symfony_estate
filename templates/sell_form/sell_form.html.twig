@@ -1,7 +1,7 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'id': "sell_form"}}) }}
     <div class="row">
         <div class="col-md-12">
-            <div id="box" enctype="multipart/form-data" ondrop="upload_file(event)" ondragover="return false">
+            <div class="dropzone" id="my-awesome-dropzone">
                 {{ form_row(form.imageFile) }}
             </div>
         </div>
