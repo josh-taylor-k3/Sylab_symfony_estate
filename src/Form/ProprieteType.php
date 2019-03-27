@@ -5,6 +5,8 @@ namespace App\Form;
 use App\Entity\ProprieteBien;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProprieteType extends AbstractType
@@ -12,6 +14,10 @@ class ProprieteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image de la Propriété',
+                'required' => false
+            ])
             ->add('name')
             ->add('description')
             ->add('city')
@@ -21,7 +27,7 @@ class ProprieteType extends AbstractType
             ->add('surface')
             ->add('nbr_bedrooms')
             ->add('price')
-            ->add('sold')
+            ->add('sold', CheckboxType::class)
         ;
     }
 

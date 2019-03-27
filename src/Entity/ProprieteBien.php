@@ -119,9 +119,9 @@ class ProprieteBien
 
 
 	public function getId(): ?int
-                        	{
-                        		return $this->id;
-                        	}
+    {
+        return $this->id;
+    }
 
     public function getName(): ?string
     {
@@ -231,12 +231,12 @@ class ProprieteBien
         return $this;
     }
 
-    public function getSold(): ?int
+    public function getSold(): ?bool
     {
         return $this->sold;
     }
 
-    public function setSold(int $sold): self
+    public function setSold(bool $sold): self
     {
         $this->sold = $sold;
 

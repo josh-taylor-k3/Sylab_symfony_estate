@@ -3,7 +3,6 @@
 {% block title %}Vendre - Sylab{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('static/css/dropzone.css') }}" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
@@ -21,25 +20,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('static/js/dropzone.js') }}"></script>    
-
-    <script type="text/javascript">
-        var myDropzone = new Dropzone("#my-awesome-dropzone", { url: "{{ asset('upload/') }}"});
-
-        myDropzone.options.myAwesomeDropzone = {
-            paramName: "file",
-            maxFilesize: 2, // MB
-            accept: function(file, done) {
-            if (file.name == "justinbieber.jpg") {
-                done("Naha, you don't.");
-            }
-            else { done(); }
-            }
-        };
-
-        $('#sell_form').submit(function(e) {
-            e.preventDefault();
-            console.log($(this));
-        })
-    </script>
+    
 {% endblock %}

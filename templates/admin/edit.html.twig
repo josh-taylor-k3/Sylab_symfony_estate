@@ -11,3 +11,21 @@
     </div>
 
 {% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $('.navbar').css('background-color', "#3c5b52");
+        $('.navbar').css('position', "relative");
+        $(window).scroll(() => {
+            if($(document).scrollTop() > 20){
+                $('.navbar').css('position', "fixed");
+                $('.navbar').css('box-shadow', "0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 12px 25px 0 rgba(0, 0, 0, 0.19)");
+            }
+            else
+            {
+                $('.navbar').css('position', "relative");
+                $('.navbar').css('box-shadow', "none");
+            }
+        });
+    </script>
+{% endblock %}

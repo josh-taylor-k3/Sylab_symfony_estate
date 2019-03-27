@@ -26,8 +26,6 @@ class SellController extends AbstractController
 			$current_time = new \DateTime();
 			// Recup data
             $formData = $form->getData();
-            dump($formData);
-            die();
 
             $propriete_bien->setName($formData->getName());
             $propriete_bien->setDescription($formData->getDescription());
@@ -46,11 +44,7 @@ class SellController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        /*$session =$this->get('session');
-        $imagesUploaded = $session->get('imagesUploaded');
-        $imagesUploaded[] = $imageCreated
-        $session->set('imagesUploaded',$imagesUploaded);*/
-
+        
 		return $this->render('sell.html.twig', [
 			'current_menu' => "sell_properties",
 			'form' => $form->createView(),
