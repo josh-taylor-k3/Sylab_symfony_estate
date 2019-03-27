@@ -65,7 +65,7 @@ class HomeController extends AbstractController
 			$request->query->getInt('page', 1),
 			6
 		);
-		
+
 		return $this->render('buy.html.twig', [
 			'current_menu' => 'buy_properties',
 			'properties' => $propriete_bien,

@@ -53,6 +53,7 @@ class ProprieteBienSearchType extends AbstractType
         ]);
     }
 
+    // url style
     public function getBlockPrefix()
 	{
 		return '';
