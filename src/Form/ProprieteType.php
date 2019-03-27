@@ -27,7 +27,9 @@ class ProprieteType extends AbstractType
             ->add('surface')
             ->add('nbr_bedrooms')
             ->add('price')
-            ->add('sold', CheckboxType::class)
+            ->add('sold', CheckboxType::class, [
+            	'required' => false
+			])
         ;
     }
 
