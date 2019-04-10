@@ -58,6 +58,10 @@ class AdminProprieteController extends AbstractController
 		// Check Form
 		if ($form->isSubmitted() && $form->isValid())
 		{
+
+			$current_time = new \DateTime();
+			$proprieteBien->setMakeAt($current_time);
+
 			$this->em->persist($proprieteBien);
 			$this->em->flush();
 			// Add confirm message

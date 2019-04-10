@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -243,12 +244,12 @@ class ProprieteBien
         return $this;
     }
 
-    public function getMakeAt(): ?\DateTimeInterface
+    public function getMakeAt(): ?DateTimeInterface
     {
         return $this->make_at;
     }
 
-    public function setMakeAt(\DateTimeInterface $make_at): self
+    public function setMakeAt(DateTimeInterface $make_at): self
     {
         $this->make_at = $make_at;
 
@@ -278,12 +279,12 @@ class ProprieteBien
         }
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
