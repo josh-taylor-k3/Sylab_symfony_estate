@@ -10,37 +10,31 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProprieteBienSearchType extends AbstractType
 {
+
+	/**
+	 * @param string $placeholder
+	 * @param bool $required
+	 * @param bool $label
+	 * @return array
+	 */
+	private function getConfig(string $placeholder, $required = false, $label = false)
+	{
+		return [
+			'required' => $required,
+			'label' => $label,
+			'attr' => [
+				'placeholder' => $placeholder
+			]
+		];
+	}
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('maxPrice', IntegerType::class, [
-            	'required' => false,
-				'label' => false,
-				'attr' => [
-					'placeholder' => 'Budget max'
-				]
-			])
-            ->add('minSurface', IntegerType::class, [
-				'required' => false,
-				'label' => false,
-				'attr' => [
-					'placeholder' => 'Surface min'
-				]
-			])
-            ->add('minRooms', IntegerType::class, [
-				'required' => false,
-				'label' => false,
-				'attr' => [
-					'placeholder' => 'Nombre de pièce min'
-				]
-			])
-            ->add('minBedrooms', IntegerType::class, [
-				'required' => false,
-				'label' => false,
-				'attr' => [
-					'placeholder' => 'Nombre de chambre min'
-				]
-			])
+            ->add('maxPrice', IntegerType::class, $this->getConfig("Budget max"))
+            ->add('minSurface', IntegerType::class, $this->getConfig("Surface min"))
+            ->add('minRooms', IntegerType::class, $this->getConfig("Nombre de pièce min"))
+            ->add('minBedrooms', IntegerType::class, $this->getConfig("Nombre de chambre min"))
         ;
     }
 

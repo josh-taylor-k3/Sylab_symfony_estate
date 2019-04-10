@@ -101,7 +101,7 @@ class AdminProprieteController extends AbstractController
 	/**
 	 * @param ProprieteBien $proprieteBien
 	 * @param Request $request
-	 * @return \Symfony\Component\HttpFoundation\RedirectResponse
+	 * @return Response
 	 */
 	public function deleteBien(ProprieteBien $proprieteBien, Request $request)
 	{

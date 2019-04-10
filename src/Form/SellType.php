@@ -13,37 +13,38 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SellType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('imageFile', VichImageType::class, [
-                'label' => 'Image de la Propriété',
-                'required' => false
-            ])
+				'label' => 'Image de la propriété',
+				'required' => false
+			])
             ->add('name', TextType::class, [
-                'label' => 'Nom'
-            ])
+            	'label' => 'Nom'
+			])
             ->add('description', TextType::class, [
-                'label' => 'Description'
-            ])
+            	'label' => 'Description'
+			])
             ->add('city', TextType::class, [
-                'label' => 'Ville'
-            ])
+            	'label' => 'Ville'
+			])
             ->add('address', TextType::class, [
-                'label' => 'Adresse'
-            ])
+            	'label' => 'Adresse'
+			])
             ->add('zip_code', TextType::class, [
-                'label' => 'Code Postal'
-            ])
+            	'label' => 'Code postal'
+			])
             ->add('nbr_rooms', IntegerType::class, [
-                'label' => 'Nombre de pièces'
-            ])
-            ->add('surface', IntegerType::class, [
-                'label' => 'Surface'
-            ])
+            	'label' => 'Nombre de chambres'
+			])
+            ->add('surface', IntegerType::class,[
+            	'label' => 'Surface'
+			])
             ->add('nbr_bedrooms', IntegerType::class, [
-                'label' => 'Nombre de chambres'
-            ])
+            	'label' => 'Nombre de chambres'
+			])
             ->add('price', IntegerType::class, [
                 'label' => 'Prix'
             ])

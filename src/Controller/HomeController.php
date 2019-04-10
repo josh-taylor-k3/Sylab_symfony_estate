@@ -84,7 +84,7 @@ class HomeController extends AbstractController
 	 * @throws \Twig_Error_Runtime
 	 * @throws \Twig_Error_Syntax
 	 */
-	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, $id, string $slug):Response
+	public function showBienById(ProprieteBien $proprieteBien, Request $request, ContactNotification $contactNotification, int $id, string $slug):Response
 	{
 		// Verif slug
 		if ($proprieteBien->getSlug() !== $slug)
