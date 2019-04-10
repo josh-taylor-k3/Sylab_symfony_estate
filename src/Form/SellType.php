@@ -14,7 +14,12 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 class SellType extends AbstractType
 {
-    private function getConfig(string $label, $required = true){
+	/**
+	 * @param string $label
+	 * @param bool $required
+	 * @return array
+	 */
+	private function getConfig(string $label, $required = true){
         return [
             'label' => $label,
             'required' => $required

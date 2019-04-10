@@ -61,7 +61,7 @@ class AdminProprieteController extends AbstractController
 			$this->em->persist($proprieteBien);
 			$this->em->flush();
 			// Add confirm message
-			$this->addFlash('success', 'Bien ajouté avec succès !');
+			$this->addFlash('success', "Le bien <strong>{$proprieteBien->getName()}</strong> a été ajouté avec succès !");
 
 			return $this->redirectToRoute('admin');
 		}
@@ -88,7 +88,7 @@ class AdminProprieteController extends AbstractController
 		{
 			$this->em->flush();
 			// Add confirm message
-			$this->addFlash('success', 'Bien modifié avec succès !');
+			$this->addFlash('success', "Le bien <strong>{$proprieteBien->getName()}</strong> a été modifié avec succès !");
 			return $this->redirectToRoute('admin');
 		}
 
@@ -112,7 +112,7 @@ class AdminProprieteController extends AbstractController
 			$this->em->remove($proprieteBien);
 			$this->em->flush();
 			// Add confirm message
-			$this->addFlash('success', 'Bien supprimé avec succès !');
+			$this->addFlash('success', "Le bien <strong>{$proprieteBien->getName()}</strong> a été supprimé avec succès !");
 		}
 
 		return $this->redirectToRoute('admin');

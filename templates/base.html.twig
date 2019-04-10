@@ -10,77 +10,12 @@
             <link href="{{ asset('static/css/styles.css') }}" rel="stylesheet" />
         {% endblock %}
     </head>
-    <body>
-        <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="{{ path('home') }}">
-                    Sylab
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        {% if app.user %}
-                            <li class="nav-item">
-                                <a class="nav-link {% if current_menu is defined and current_menu == 'admin_menu' %}active{% endif %}" href="{{ path('admin') }}">Admin panel</a>
-                            </li>
-                            </ul>
-                            <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item text-right">
-                                        <a class="nav-link" href="{{ path('logout') }}">Deconnexion</a>
-                                    </li>
-                            </ul>
-                        {% else %}
-                            <li class="nav-item">
-                                {# Si on est sur la page lien actif #}
-                                <a class="nav-link {% if current_menu is defined and current_menu == 'buy_properties' %}active{% endif %}" href="{{ path('buy') }}">Acheter</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {% if current_menu is defined and current_menu == 'sell_properties' %}active{% endif %}" href="{{ path('sell') }}">Vendre</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {% if current_menu is defined and current_menu == 'connexion_menu' %}active{% endif %}" href="{{ path('login') }}">Connexion</a>
-                            </li>
-                    {% endif %}
-                </div>
-            </div>
-        </nav>
+
+        {% include 'includes/header.html.twig' %}
+
         {% block body %}{% endblock %}
 
-        {% block footer %}
-            <div id="footer" class="mt-5">
-                <div class="container">
-                    <div id="footer-center" class="row pt-5 pb-5">
-                        <div class="col-md-3 text-light">
-                            <a href="{{ path('home') }}"><h2>Sylab</h2></a>
-                            <p>Slogan du site mdrr</p>
-                        </div>
-
-                        <div class="col-md-3">
-                            <a href="{{ path('buy') }}"><h5>Acheter</h5></a>
-                            <a href="{{ path('sell') }}"><h5>Vendre</h5></a>
-                        </div>
-
-                        <div class="col-md-3">
-                            <h5 class="text-light">Réseaux sociaux</h5>
-                            <a href="https://www.facebook.com" target="_blank">Facebook</a><br>
-                            <a href="https://www.twitter.com" target="_blank">Twitter</a><br>
-                        </div>
-
-                        <div class="col-md-3">
-                            <h5 class="text-light">Contact</h5>
-                            <a href="tel:0556900010">Tél : 05 56 90 00 10</a><br>
-                            <a href="mailto:contact@sylab.fr">Email : contact@sylab.fr</a><br>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="copyright">
-                    <p>Copyright - Quentin Gans && Lucas Consejo</p>
-                </div>
-            </div>
-        {% endblock %}
+        {% include 'includes/footer.html.twig' %}
 
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
